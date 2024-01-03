@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Button from "./Button"
 import Child from "./Child"
 
 function App() {
   const [value, setValue] = useState<string>()
+  const inputRef = useRef<HTMLInputElement>(null);
+  const valueRef = useRef<number>();
+
+  inputRef.current?.focus();
+  valueRef.current = 10;
 
   return (
     <>
@@ -12,8 +17,9 @@ function App() {
         <p>This is a child</p>
       </Child>
       <Button outline>Hi Iam a button</Button>
-      
+
       <input type="text" value={value} onChange={e => setValue(e.target.value)} />
+      <input type="text" ref={inputRef} />
     </>
   )
 }
