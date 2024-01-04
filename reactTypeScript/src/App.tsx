@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import Button from "./Button"
 import Child from "./Child"
 import Reducer from "./Reducer";
+import ContextApp from "./Context";
 
 function App() {
   const [value, setValue] = useState<string>()
@@ -22,6 +23,7 @@ function App() {
       <input type="text" value={value} onChange={e => setValue(e.target.value)} />
       <input type="text" ref={inputRef} />
       <Reducer/>
+      <ContextApp/>
     </>
   )
 }
